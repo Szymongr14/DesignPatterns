@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface IObserver
+interface ISubject
+class Client
+class Newsletter
+
+
+' Relationships
+IObserver<..Client
+ISubject o-- IObserver
+ISubject<..Newsletter
+Newsletter o-- Client
+
+interface IObserver{
+    +Update(mail)
+}
+
+interface ISubject {
+    +AddObserver(IObserver observer)
+    +RemoveObserver(IObserver observer)
+    +NotifyObservers()
+    +SetFields(string mail)
+    +HasChanged() : bool
+    +SetChange(bool status)
+}
+
+class Newsletter {
+    -List<IObserver> _subscribers
+    -string _contentOfMail
+    -bool _FieldsHaveBeenChanged
+    +AddObserver(IObserver observer)
+    +RemoveObserver(IObserver observer)
+    +NotifyObservers()
+    +SetFields(string mail)
+    +HasChanged() : bool
+    +SetChange(bool status)
+}
+
+class Client {
+    +string Name
+    +Update(string mail)
+    -ReadMail(string mail)
+}
+@enduml
