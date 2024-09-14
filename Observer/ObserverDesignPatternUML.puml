@@ -8,9 +8,9 @@ class Newsletter
 
 
 ' Relationships
-IObserver<..Client
+IObserver<|..Client
 ISubject o-- IObserver
-ISubject<..Newsletter
+ISubject<|..Newsletter
 Newsletter o-- Client
 
 interface IObserver{

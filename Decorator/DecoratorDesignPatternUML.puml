@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface IFileManager
+abstract class FileManagerDecorator
+class FileManager
+class CryptographyDecorator
+
+' Relationships
+FileManager ..|> IFileManager : extends
+FileManagerDecorator ..|> IFileManager : implements
+CryptographyDecorator --|> FileManagerDecorator : implements
+
+class FileManager{
+    +Write(string fileName, string content)
+    +Read(string fileName)
+}
+
+class IFileManager{
+    +Write(string fileName, string content)
+    +Read(string fileName)
+}
+
+class FileManagerDecorator{
+    -IFileManager _fileManager
+    +{abstract} Write(string fileName, string content)
+    +{abstract} Read(string fileName)
+}
+
+class CryptographyDecorator{
+    - string _key
+    +Write(string fileName, string content)
+    +Read(string fileName)
+    
+    -Encrypt(string plainText, string passPhrase)
+    -Decrypt(string encryptedText, string passPhrase)
+}
+
+
+@enduml
