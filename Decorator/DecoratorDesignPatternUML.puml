@@ -7,9 +7,9 @@ class FileManager
 class CryptographyDecorator
 
 ' Relationships
-FileManager ..|> IFileManager : extends
+FileManager --|> IFileManager : extends
 FileManagerDecorator ..|> IFileManager : implements
-CryptographyDecorator --|> FileManagerDecorator : implements
+CryptographyDecorator ..|> FileManagerDecorator : implements
 
 class FileManager{
     +Write(string fileName, string content)
