@@ -1,0 +1,73 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Payment {
+    # amount : decimal
+    # currency : Currency
+    # PaymentId : Guid
+    
+    # ctor()
+    + {abstract} ProcessPayment()
+}
+
+abstract class PaymentFactory {
+    + {abstract} Payment CreatePayment(amount, currency);
+}
+
+class PayPallPayment{
+    + ctor()
+    + ProcessPayment()
+}
+
+class BlikPayment{
+    + ctor()
+    + ProcessPayment()
+}
+
+class CreditCardPayment{
+    + ctor()
+    + ProcessPayment()
+}
+
+class CreditCardPaymentFactory{
+    + Payment CreatePayment(decimal amount, Currency currency)
+}
+
+class BlikPaymentFactory{
+    + Payment CreatePayment(decimal amount, Currency currency)
+}
+
+class PayPallPaymentFactory{
+    + Payment CreatePayment(decimal amount, Currency currency)
+}
+
+class PaymentFactoryProvider{
+    - List<PaymentFactory> _factories
+    - ctor()
+    - GetFactory()
+    + InitializeFactories()
+    + ProcessPayment(PaymentType paymentType, decimal amount, Currency currency)
+}
+
+' Relationships
+Payment <|-- CreditCardPayment : extends
+Payment <|-- PayPallPayment : extends
+Payment <|-- BlikPayment : extends
+
+PaymentFactory <|-- CreditCardPaymentFactory : extends
+PaymentFactory <|-- BlikPaymentFactory : extends
+PaymentFactory <|-- PayPallPaymentFactory : extends
+
+enum PaymentType {
+    PayPall
+    BLIK
+    CreditCard
+}
+
+enum Currency {
+    USD
+    EUR
+    GBP
+}
+
+@enduml

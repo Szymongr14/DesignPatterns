@@ -96,7 +96,7 @@ public class CreditCardPaymentFactory : PaymentFactory{
 
 // factory provider
 // we could use if/else statements or reflection
-public class PaymentFactoryProvider{
+public class PaymentFactoryProvider()
     public PaymentFactory GetFactory(Payments paymentType){
         switch(paymentType){
             case PayPal:
@@ -113,3 +113,7 @@ public class PaymentFactoryProvider{
 PaymentFactoryProvider factoryProvider = new PaymentFactoryProvider();
 PaymentFactory factory = factoryProvider.GetFactory(Payments.PayPal);
 ```
+
+## 4. Takeaways
+- Factory Method is a design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+- We need to create FactoryProvider, and it's the only service we need to inject to client's code
