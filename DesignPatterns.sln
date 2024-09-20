@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decorator", "Decorator\Deco
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryMethod", "FactoryMethod\FactoryMethod.csproj", "{58184B5A-6200-4E8E-8D89-B1A262125A17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractFactory", "AbstractFactory\AbstractFactory.csproj", "{ACBD7386-4846-4381-A061-C9978BF13094}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{58184B5A-6200-4E8E-8D89-B1A262125A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58184B5A-6200-4E8E-8D89-B1A262125A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58184B5A-6200-4E8E-8D89-B1A262125A17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACBD7386-4846-4381-A061-C9978BF13094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACBD7386-4846-4381-A061-C9978BF13094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACBD7386-4846-4381-A061-C9978BF13094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACBD7386-4846-4381-A061-C9978BF13094}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
