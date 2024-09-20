@@ -1,17 +1,17 @@
-## 1. When to use Factory Method design pattern ?
+## 1. When to use a Factory Method design pattern?
 
-- If we need to create instance of a new object/product, but we don't know exact type during runtime. 
+- If we need to create an instance of a new object/product, but we don't know an exact type during runtime. 
 ---
-## 2. There are two ways of using factory method design pattern:
-- using a lot of if/else statements to determine type to create
-- using reflection to detect type from assemblies
-### When to choose which ?
+## 2. There are two ways of using a factory method design pattern:
+- using a lot of if/else statements to determine a type to create
+- using reflection to detect a type from assemblies
+### When to choose which?
 - Use **if/else** when:
-  - application is small/simple
-  - we write performance-critical system
+  - application is small/straightforward
+  - we write a performance-critical system
 - Use **Reflection** when:
   - we fetch types from external configuration
-  - system is highly extensible
+  - the system is highly extensible
   - having a lot of possible types to create
 
 Usually we use class called ``FactoryProvider`` to get concrete factory of product:
@@ -117,3 +117,6 @@ PaymentFactory factory = factoryProvider.GetFactory(Payments.PayPal);
 ## 4. Takeaways
 - Factory Method is a design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
 - We need to create FactoryProvider, and it's the only service we need to inject to client's code
+
+## 5. Factory Method general UML diagram
+![img.png](img.png)
